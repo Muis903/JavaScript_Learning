@@ -1,85 +1,74 @@
-// EXAMINE THE DOCUMENT OBJECT //
+// TRAVERSTING THE DOM //
 
-// console.dir(document); //
+var itemsList = document.querySelector('#items');
+// parentNode
+// console.log(itemsList.parentNode);
+// itemsList.parentNode.style.backgroundColor = 'grey';
+// console.log(itemsList.parentNode.parentNode.parentNode);
 
-// console.log(document.domain);
-// console.log(document.URL);
-// console.log(document.title);
-// document.title = "test";
-// console.log(document.doctype);
-// console.log(document.head);
-// console.log(document.body);
-// console.log(document.all);
-// console.log(document.all[10]);
-// document.all[10].textContent = "Hello";
-// console.log(document.forms[0]);
-// console.log(document.links);
-// console.log(document.images);
-// console.log(document.getElementById('header-title'));
-// var headerTitle = document.getElementById('header-title');
-// var header = document.getElementById('main-header');
-// console.log(headerTitle);
-// headerTitle.textContent = "test";
-// headerTitle.innerHTML = '<h5> Hallo </h5>';
-// console.log(headerTitle.innerText);
-// header.style.borderBottom = 'solid 3px #000';
+// PARENTELEMENT
+// console.log(itemsList.parentElement);
+// itemsList.parentElement.style.backgroundColor = 'grey';
+// console.log(itemsList.parentElement.parentElement.parentElement);
 
-// GETELEMENTSBYCLASNAME //
+// childNodes
+// console.log(itemsList.childNodes);
 
-// var items = document.getElementsByClassName('list-group-item');
-// console.log(items);
-// console.log(items[1]);
-// items[1].textContent = "Hello!!!";
-// items[1].style.fontWeight = "bold";
-// items[1].style.backgroundColor = "red";
+// console.log(itemsList.children);
+// console.log(itemsList.children[1]);
+// itemsList.children[1].style.backgroundColor = "red";
 
-// for (i = 0; i < items.length; i++) {
-//    items[i].style.backgroundColor = "#f4f4f4";
-// }
+// FirstChild
+// console.log(itemsList.firstChild);
+// FirstElementChild
+// console.log(itemsList.firstElementChild);
+// itemsList.firstElementChild.textContent = "You read it!";
 
-// var li = document.getElementsByTagName('li');
-// console.log(li);
-// console.log(li[1]);
-// li[1].textContent = "Hello!!!";
-// li[1].style.fontWeight = "bold";
-// li[1].style.backgroundColor = "red";
+// LastChild
+// console.log(itemsList.lastChild);
+// LastElementChild
+// console.log(itemsList.lastElementChild);
+// itemsList.children[3].style.backgroundColor = "purple";
+// itemsList.lastElementChild.textContent = "I SEE YOU READING!";
 
-// for (i = 0; i < li.length; i++) {
-//     li[i].style.backgroundColor = "#f4f4f4";
-// }
+// NextSibling
+// console.log(itemsList.nextSibling);
+// NextElementSibling
+// console.log(itemsList.nextElementSibling);
+// test = itemsList.nextElementSibling
+// test.style.backgroundColor = "yellow";
 
-// QUERYSELECTOR //
+// PreviousSibling
+// console.log(itemsList.previousSibling);
+// PreviousElementSibling
+// console.log(itemsList.previousElementSibling);
+// itemsList.previousElementSibling.style.backgroundColor = "gold";
 
-var header = document.querySelector('#main-header');
-header.style.borderBottom = 'solid 5px #ccc';
+// createElement
 
-var input = document.querySelector('input');
-input.value = "Hello World";
+// create a div
+var newDiv = document.createElement('div');
 
-var submit = document.querySelector("input[type='submit']");
-submit.value = "SEND";
+// Add class
+newDiv.className = "className_test"
 
-var item = document.querySelector(".list-group-item");
-item.style.color = "red";
+// Add id
+newDiv.id = "Hallo"
 
-var lastItem = document.querySelector
-(".list-group-item:last-child");
-lastItem.style.color = "coral";
+// Add attr
+newDiv.setAttribute("title", "Hello Div");
 
-var secondItem = document.querySelector(".list-group-item:nth-child(2)");
-secondItem.style.color = "blue";
+// Create text node
+newDivText = document.createTextNode("Hello test");
 
-// QUERYSELECTORALL //
+// Add text to div
+newDiv.appendChild(newDivText);
 
-var titles = document.querySelectorAll('.title');
+var container = document.querySelector('header .container');
+var h1 = document.querySelector('header h1')
 
-console.log(titles);
-titles[0].textContent = "Hello";
+console.log(newDiv);
 
-var odd = document.querySelectorAll("li:nth-child(odd)"); 
-var even = document.querySelectorAll('li:nth-child(even)');
+newDiv.style.fontSize = '40px';
 
-for(i = 0; i<odd.length; i++){
-    odd[i].style.backgroundColor = '#f4f4f4';
-    even[i].style.backgroundColor = '#ccc';
-}
+container.insertBefore(newDiv, h1);
